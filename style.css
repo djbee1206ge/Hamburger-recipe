@@ -1,0 +1,258 @@
+/* for CodePen */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&family=Inter:wght@400;500&display=swap');
+/*#region +++++ROOT+++++ */
+:root {
+	/* ## Colors */
+
+	--clr-neutral-100: #fff;
+	--clr-neutral-900: #030303;
+	--clr-primary-400: #ff3369;
+
+	/* ## Typography */
+	--ff-titles: 'Baloo 2', sans-serif;
+	--ff-base: 'Inter', sans-serif;
+
+	--fs-300: 0.8125rem; /*link: 13px*/
+	--fs-400: 1.0625rem; /* body 17px */
+	--fs-500: 1.5rem; /*description: 24px*/
+	--fs-600: 1.75rem; /*subtitle: 28px*/
+	--fs-700: 2.125rem; /*section headings: 34px*/
+	--fs-800: 4.25rem; /*title: 68px*/
+
+	--fw-300: 300;
+	--fw-400: 400;
+	--fw-900: 900;
+}
+
+/* @large screens */
+@media (min-width: 40rem) {
+	:root {
+		--fs-600: 2.125rem; /*subtitle: 34px*/
+	}
+}
+
+/*#endregion +++++ROOT+++++ */
+
+/*#region +++++ RESET +++++ */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4 {
+	line-height: 1;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+dl,
+dd,
+figure {
+	margin: 0;
+}
+
+ul[class],
+ol[class] {
+	list-style: none;
+	padding: 0;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	border-radius: var(--br);
+}
+
+/*#endregion +++++ RESET +++++ */
+
+/*#region +++++ GENERAL REUSABLE +++++ */
+body {
+	font-family: var(--ff-base);
+	font-size: var(--fs-400);
+	color: var(--clr-neutral-900);
+	line-height: 1.6;
+	background-color: #e5e5e5;
+}
+
+.accent {
+	background: var(--clr-primary-400);
+	color: var(--clr-neutral-100);
+}
+
+.active {
+	position: relative;
+	font-weight: var(--fw-900);
+}
+/* .active::before,
+.active::after {
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 1px;
+	background-color: rgba(255, 255, 255, 0.5);
+	left: 0;
+}
+.active::before {
+	top: -0.25rem;
+}
+.active::after {
+	bottom: -0.35rem;
+} */
+
+.recipe-title {
+	font-family: var(--ff-titles);
+	font-size: var(--fs-800);
+	color: var(--clr-neutral-100);
+}
+
+.recipe-subtitle {
+	font-size: var(--fs-600);
+	color: var(--accent, var(--clr-neutral-100));
+}
+
+article {
+	padding: 1rem;
+}
+.article-title {
+	font-family: var(--ff-titles);
+	font-size: var(--fs-700);
+	color: var(--clr-primary-400);
+}
+
+.site-wrapper {
+	position: relative;
+	max-width: 80rem;
+	margin-right: auto;
+	margin-left: auto;
+}
+.container {
+	padding: 5rem 1rem;
+}
+
+.xl-space {
+	margin-top: 5rem;
+}
+/*#endregion +++++ GENERAL REUSABLE +++++ */
+
+/*#region +++++ GENERAL LAYOUT +++++ */
+.hero {
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+}
+
+.logo {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	z-index: 99;
+}
+
+.hero-title {
+	background-image: url(./assets/hero.jpg);
+	background-size: cover;
+	background-position: center center;
+}
+
+.recipe {
+	background: var(--clr-neutral-100);
+	margin-bottom: 3.75rem;
+}
+.source {
+	padding: 1rem 2rem;
+	margin-bottom: -1px;
+}
+
+nav {
+	color: var(--clr-neutral-100);
+	background: var(--clr-primary-400);
+	max-width: 80rem;
+	margin-left: auto;
+	margin-right: auto;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.nav-list {
+	display: flex;
+	justify-content: space-evenly;
+	margin: 0;
+}
+.nav-list a {
+	display: inline-block;
+	text-decoration: none;
+	color: var(--clr-neutral-100);
+	padding: 1rem 0;
+}
+
+@media (min-width: 47rem) {
+	.container {
+		padding: 5rem;
+	}
+	.hero-bottom p {
+		margin-top: 0;
+		padding-bottom: 5rem;
+	}
+	.recipe {
+		margin: -5rem 4rem 5rem 4rem;
+		overflow: hidden;
+		border: 0;
+		border-radius: 0.5rem;
+	}
+
+	.grid {
+		display: grid;
+		gap: 1rem 3rem;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(4, min-content);
+		grid-template-areas:
+			'make ingredients'
+			'cook ingredients'
+			'serve ingredients';
+	}
+	.cook {
+		grid-area: cook;
+	}
+	.serve {
+		grid-area: serve;
+	}
+	.make {
+		grid-area: make;
+	}
+	.ingredients {
+		grid-area: ingredients;
+	}
+	nav {
+		position: relative;
+		height: 5rem;
+		background: var(--clr-neutral-100);
+	}
+	.nav-list {
+		justify-content: end;
+	}
+	.nav-list a {
+		color: var(--clr-neutral-900);
+		margin-right: 5rem;
+	}
+}
+
+/*#endregion +++++ GENERAL LAYOUT +++++ */
