@@ -253,6 +253,9 @@ nav {
 		color: var(--clr-neutral-900);
 		margin-right: 5rem;
 	}
+	.source {
+		padding: 1rem 6rem;
+	}
 }
 
 /*#endregion +++++ GENERAL LAYOUT +++++ */
