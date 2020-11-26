@@ -102,21 +102,6 @@ body {
 	position: relative;
 	font-weight: var(--fw-900);
 }
-/* .active::before,
-.active::after {
-	position: absolute;
-	content: '';
-	width: 100%;
-	height: 1px;
-	background-color: rgba(255, 255, 255, 0.5);
-	left: 0;
-}
-.active::before {
-	top: -0.25rem;
-}
-.active::after {
-	bottom: -0.35rem;
-} */
 
 .recipe-title {
 	font-family: var(--ff-titles);
@@ -136,6 +121,9 @@ article {
 	font-family: var(--ff-titles);
 	font-size: var(--fs-700);
 	color: var(--clr-primary-400);
+}
+article ol * + * {
+	margin-top: 2rem;
 }
 
 .site-wrapper {
@@ -178,7 +166,6 @@ article {
 }
 .source {
 	padding: 1rem 2rem;
-	margin-bottom: -1px;
 }
 
 nav {
@@ -201,7 +188,8 @@ nav {
 	display: inline-block;
 	text-decoration: none;
 	color: var(--clr-neutral-100);
-	padding: 1rem 0;
+	padding: 1.225rem 0;
+	font-size: var(--fs-300);
 }
 
 @media (min-width: 47rem) {
@@ -247,11 +235,12 @@ nav {
 		background: var(--clr-neutral-100);
 	}
 	.nav-list {
-		justify-content: end;
+		justify-content: flex-end;
 	}
 	.nav-list a {
 		color: var(--clr-neutral-900);
 		margin-right: 5rem;
+		font-size: var(--fs-400);
 	}
 	.source {
 		padding: 1rem 6rem;
