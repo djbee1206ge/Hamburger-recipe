@@ -235,7 +235,9 @@ nav {
 		background: var(--clr-neutral-100);
 	}
 	.nav-list {
+		height: 100%;
 		justify-content: flex-end;
+		align-items: center;
 	}
 	.nav-list a {
 		color: var(--clr-neutral-900);
